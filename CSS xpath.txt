@@ -1,0 +1,70 @@
+CSS ID 选择器查找元素
+不管用什么方式查找元素，id，name，xpath，css等等，都需要在页面上查找到唯一的元素
+都应该只找到一个匹配的node，除非想要查找一批元素放在集合里
+
+语法：
+	1，tag[attribute='value']    			//tag是标签，attribute是属性，value是值，值需要完全匹配
+			例：a[id='js-signin-btn']
+	2，"#"--->Id			
+			例：#js-signin-btn	或者		a#js-signin-btn		//更准确
+	3，"."---->Class		
+	追加类：
+		.class1.class2.class3
+	
+css选择器-通配符查找元素
+	通配符：
+	1，"^"--->代表以什么文本开始
+		tag[attribute<通配符>="value"]
+		例：ul[class^="p_pop"]
+	2，"$"--->代表以什么文本结尾
+		例：ul[class$="h_pop"]
+	3，"*"--->代表包含什么文本
+		例：a[class*="xst"]
+		
+css选择器-定位子节点
+	">"--->向下定位
+	1.tag>tag
+		例：div>form
+	2.tag>#id
+		例：div>#moderate   	或 	div>form#moderate
+	3.tag>.class
+	
+	
+XPath定位元素
+语法：
+	//tag[@attibute='value']
+	绝对路径使用单斜线‘/’，
+		/html/body/div[1]/div/ul/li[3]/div/span
+	相对路径使用双斜线‘//’，使用的比较多
+		//*[@id="header"]/div/ul/li[3]/div/span
+	/和//的区别：
+		‘/’：元素是上一级节点的子节点中的一个，不能跳级
+		‘//’：下级任何子节点或者任何嵌套子节点中的一个，可以跳级
+	路径里面不要使用'*'，要写明标签名
+	
+使用元素的text文本属性来写xpath
+	定位慕课网“忘记密码”连接
+	//a[text()='忘记密码']				//注意需要完全匹配
+	
+使用contains关键字查找元素
+	//tag[contains(attribute,'value')]			//不需要完全匹配
+	例：//a[contains(text(),'忘记密码')]
+	也可以查找其他元素
+	例：//input[contains(@id,'scbar_tx')]
+	
+使用starts-with关键字查找元素
+	//tag[starts-with(attribute,'value')]		
+	可以匹配元素开头的值	
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
